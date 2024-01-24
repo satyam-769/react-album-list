@@ -1,0 +1,112 @@
+.app-container {
+  max-width: 100%;
+  margin: auto;
+  padding: 20px;
+  background: lightslategray;
+}
+
+.app-title {
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.album-list {
+  list-style: none;
+  padding: 0;
+}
+
+.album-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.album-title {
+  flex-grow: 1;
+}
+
+.album-actions button {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.add-album {
+  display: flex;
+  margin-top: 20px;
+  max-width: 400px;
+}
+
+.add-album input {
+  flex-grow: 1;
+  padding: 8px;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  border: 1px solid #0baec8;
+  border-radius: 4px;
+}
+
+.add-album button {
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #0baec8!important;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  height: 45px;
+  margin-left: 4px;
+}
+
+.add-album input:focus-visible {
+  border: 1px solid #0baec8;
+  outline-offset: none;
+}
+
+.card {
+  height: 160px;
+}
+
+.card-title {
+  color:black;
+  margin: 0;
+  height: 92px;
+  text-align: left;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-button {
+  display: flex;
+  justify-content: end;
+}
+
+.card-button .btn {
+  background-color: #0baec8;
+  border: none;
+  font-weight: 500;
+}
+
+.card-button .btn-danger {
+  background-color: crimson;
+}
+
+.modal {
+  display: block;
+  color:black;
+}
+
+.modal-body input {
+  width: 99%;
+  padding: 8px;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  border: 1px solid #0baec8;
+  border-radius: 4px;
+}
