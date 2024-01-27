@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import './style.css';
 
-// API
+// Const API
 const API_URL = 'https://jsonplaceholder.typicode.com/albums';
 
 const AlbumList = () => {
@@ -13,12 +13,12 @@ const AlbumList = () => {
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [updateAlbumId, setUpdateAlbumId] = useState(null);
 
-  // Fetch albums data using axios
+  // Fetch albums data on componenet mount (only first time)
   useEffect(() => {
     fetchAlbums();
   }, []);
 
-  // Helper routine for GET API call
+  // Helper routine for GET API call using axios
   const fetchAlbums = async () => {
     try {
       const response = await axios.get(API_URL);
@@ -28,7 +28,7 @@ const AlbumList = () => {
     }
   };
 
-  // Helper routine for POST API call
+  // Helper routine for POST API call to Add new album
   const addAlbum = async () => {
     try {
       const response = await axios.post(API_URL, { title: newAlbumTitle });
@@ -39,7 +39,7 @@ const AlbumList = () => {
     }
   };
 
-  // Helper routine for UPDATE API call
+  // Helper routine for UPDATE API call to Update the alubm
   const updateAlbum = async () => {
     if (!updateAlbumId) {
       return; // Do nothing if updateAlbumId is not set
@@ -107,36 +107,36 @@ const AlbumList = () => {
       </div>
 
       {showUpdateModal && (
-      <div className="modal" tabindex="-1" role="dialog">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Enter new title:</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close"
-                onClick={() => setShowUpdateModal(false)}>
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-            <input
-              type="text"
-              value={updatedAlbumTitle}
-              onChange={e => setUpdatedAlbumTitle(e.target.value)}
-            />
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-primary"
-                onClick={updateAlbum}>
-                  Save changes
-              </button>
-              <button type="button" className="btn btn-secondary" data-dismiss="modal"
-                onClick={() => setShowUpdateModal(false)}>
-                  Close
-              </button>
+        <div className="modal" tabindex="-1" role="dialog">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Enter new title:</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close"
+                  onClick={() => setShowUpdateModal(false)}>
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+              <input
+                type="text"
+                value={updatedAlbumTitle}
+                onChange={e => setUpdatedAlbumTitle(e.target.value)}
+              />
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-primary"
+                  onClick={updateAlbum}>
+                    Save changes
+                </button>
+                <button type="button" className="btn btn-secondary" data-dismiss="modal"
+                  onClick={() => setShowUpdateModal(false)}>
+                    Close
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       )}
     </div>
   );
